@@ -7,9 +7,35 @@
     tools:context=".app.MainActivity">
 
     <com.dengzii.flowlayout.FlowLayout
-        android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        app:tag_row_space="10dp"
+        app:tag_col_space="12dp"
+        app:tag_height="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11111" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2222222" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3333333" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4444" />
 
     </com.dengzii.flowlayout.FlowLayout>
+
 
 </FrameLayout>
