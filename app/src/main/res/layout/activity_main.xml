@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.MainActivity">
+    tools:context=".app.MainActivity"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/bt_refresh"
+        android:text="refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <com.dengzii.flowlayout.FlowLayout
+        android:id="@+id/fl_tags"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
-        app:tag_row_space="10dp"
-        app:tag_col_space="12dp"
-        app:tag_height="24dp">
+        app:tag_row_space="15dp"
+        app:tag_col_space="4dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,15 +35,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3333333" />
-
+            android:text="3111" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4444" />
+            android:text="444444444" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5411111111114" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6444" />
 
     </com.dengzii.flowlayout.FlowLayout>
 
 
-</FrameLayout>
+</LinearLayout>

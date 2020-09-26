@@ -1,7 +1,9 @@
 package com.dengzii.flowlayout
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
+import android.view.View
 import android.view.ViewGroup
 
 class FlowLayout : ViewGroup {
@@ -9,6 +11,10 @@ class FlowLayout : ViewGroup {
     var rowSpace = 0
     var colSpace = 0
     var tagHeight = 0
+
+    companion object {
+        private const val TAG = "FlowLayout"
+    }
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -27,13 +33,12 @@ class FlowLayout : ViewGroup {
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
-        val w = MeasureSpec.getSize(widthMeasureSpec) // fixed width match parent
+        val w = MeasureSpec.getSize(widthMeasureSpec)
         var h = MeasureSpec.getSize(heightMeasureSpec)
 
         if (childCount == 0) {
-            setMeasuredDimension(w, h)
+            setMeasuredDimension(w, 0)
             return
         }
         measureChildren(widthMeasureSpec, heightMeasureSpec)
@@ -44,16 +49,18 @@ class FlowLayout : ViewGroup {
         if (heightMode != MeasureSpec.EXACTLY) {
             var row = 1
             var widthSpace = w
+            var child: View
+            var itemWidth: Int
             for (i in 0 until childCount) {
-                val child = getChildAt(i)
-                widthSpace = if (widthSpace >= w) {
-                    widthSpace - child.measuredWidth - colSpace
-                } else {
+                child = getChildAt(i)
+                itemWidth = child.measuredWidth + colSpace
+                widthSpace -= itemWidth
+                if (widthSpace < 0) {
                     row++
-                    w
+                    widthSpace = w - itemWidth
                 }
             }
-            h = row * tagHeight
+            h = row * (tagHeight + rowSpace)
         }
         setMeasuredDimension(w, h)
     }
