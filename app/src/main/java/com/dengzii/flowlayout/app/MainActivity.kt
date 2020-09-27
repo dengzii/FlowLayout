@@ -2,7 +2,6 @@ package com.dengzii.flowlayout.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.dengzii.flowlayout.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

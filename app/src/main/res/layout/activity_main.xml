@@ -19,6 +19,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
+        app:tag_height="22dp"
         app:tag_row_space="15dp"
         app:tag_col_space="4dp">
 
